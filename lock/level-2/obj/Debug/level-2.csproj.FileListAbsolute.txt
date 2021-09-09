@@ -1,0 +1,11 @@
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.csproj.AssemblyReference.cache
+C:\Dev\CSA\lock\level-2\bin\Debug\level-2.exe
+C:\Dev\CSA\lock\level-2\bin\Debug\level-2.pdb
+C:\Dev\CSA\lock\level-2\bin\Debug\Cryptography.Obfuscation.dll
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.g.resources
+C:\Dev\CSA\lock\level-2\obj\Debug\level_2.Properties.Resources.resources
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.csproj.GenerateResource.cache
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.csproj.CoreCompileInputs.cache
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.csproj.CopyComplete
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.exe
+C:\Dev\CSA\lock\level-2\obj\Debug\level-2.pdb

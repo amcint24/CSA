@@ -1,0 +1,187 @@
+<Window x:Class="level_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:level_2"
+        Title="MainWindow" Height="301.518" Width="548.994" AllowsTransparency="true" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" Background="{x:Null}" Foreground="{x:Null}">
+  <FrameworkElement.Resources>
+    <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FF1A1A1D"/>
+    <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF1A1A1D"/>
+    <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF1A1A1D"/>
+    <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+      <Setter Property="Control.Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+      <Setter Property="Control.BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+      <Setter Property="Control.Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+      <Setter Property="Control.BorderThickness" Value="1"/>
+      <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+      <Setter Property="Control.HorizontalContentAlignment" Value="Left"/>
+      <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="UIElement.AllowDrop" Value="true"/>
+      <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+      <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+      <Setter Property="Control.Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type TextBox}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding Control.BorderBrush}"
+                    BorderThickness="{TemplateBinding Control.BorderThickness}"
+                    Background="{TemplateBinding Control.Background}" SnapsToDevicePixels="true">
+              <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden"/>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="UIElement.IsEnabled" Value="false">
+                <Setter TargetName="border" Property="UIElement.Opacity" Value="0.56"/>
+              </Trigger>
+              <Trigger Property="UIElement.IsMouseOver" Value="true">
+                <Setter TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}" Property="Border.BorderBrush"/>
+              </Trigger>
+              <Trigger Property="UIElement.IsKeyboardFocused" Value="true">
+                <Setter TargetName="border" Value="{StaticResource TextBox.Focus.Border}" Property="Border.BorderBrush"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+      <Style.Triggers>
+        <MultiTrigger>
+          <MultiTrigger.Conditions>
+            <Condition Property="TextBoxBase.IsInactiveSelectionHighlightEnabled" Value="true"/>
+            <Condition Property="TextBoxBase.IsSelectionActive" Value="false"/>
+          </MultiTrigger.Conditions>
+          <Setter Property="TextBoxBase.SelectionBrush"
+                  Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+        </MultiTrigger>
+      </Style.Triggers>
+    </Style>
+    <Style x:Key="FocusVisual">
+      <Setter Property="Control.Template">
+        <Setter.Value>
+          <ControlTemplate>
+            <Rectangle Margin="2" SnapsToDevicePixels="true"
+                       Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1"
+                       StrokeDashArray="1 2"/>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+    <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FF2E2E31"/>
+    <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF03FF06"/>
+    <SolidColorBrush x:Key="Button.Pressed.Background" Color="Black"/>
+    <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF1A1A1D"/>
+    <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+    <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+    <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+    <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+      <Setter Property="FrameworkElement.FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+      <Setter Property="Control.Background" Value="{StaticResource Button.Static.Background}"/>
+      <Setter Property="Control.BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+      <Setter Property="Control.Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+      <Setter Property="Control.BorderThickness" Value="1"/>
+      <Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="Control.VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Control.Padding" Value="1"/>
+      <Setter Property="Control.Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Border x:Name="border" CornerRadius="28" BorderBrush="{TemplateBinding Control.BorderBrush}"
+                    BorderThickness="{TemplateBinding Control.BorderThickness}"
+                    Background="{TemplateBinding Control.Background}" SnapsToDevicePixels="true">
+              <ContentPresenter x:Name="contentPresenter" Focusable="false"
+                                HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Control.Padding}" RecognizesAccessKey="true"
+                                SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="Button.IsDefaulted" Value="true">
+                <Setter TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                        Property="Border.BorderBrush"/>
+              </Trigger>
+              <Trigger Property="UIElement.IsMouseOver" Value="true">
+                <Setter TargetName="border" Value="{StaticResource Button.MouseOver.Background}"
+                        Property="Border.Background"/>
+                <Setter TargetName="border" Value="{StaticResource Button.MouseOver.Border}" Property="Border.BorderBrush"/>
+              </Trigger>
+              <Trigger Property="ButtonBase.IsPressed" Value="true">
+                <Setter TargetName="border" Value="{StaticResource Button.Pressed.Background}" Property="Border.Background"/>
+                <Setter TargetName="border" Value="{StaticResource Button.Pressed.Border}" Property="Border.BorderBrush"/>
+              </Trigger>
+              <Trigger Property="UIElement.IsEnabled" Value="false">
+                <Setter TargetName="border" Value="{StaticResource Button.Disabled.Background}"
+                        Property="Border.Background"/>
+                <Setter TargetName="border" Value="{StaticResource Button.Disabled.Border}" Property="Border.BorderBrush"/>
+                <Setter TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"
+                        Property="TextElement.Foreground"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </FrameworkElement.Resources>
+  <Grid>
+    <Rectangle Fill="#FF1A1A1D" HorizontalAlignment="Left" Height="300.918" Margin="0,0.6,0,0" Stroke="Black"
+               VerticalAlignment="Top" Width="548.994"/>
+    <Image HorizontalAlignment="Left" Height="179.4" Margin="34,23,0,0" VerticalAlignment="Top" Width="167.4"
+           Source="numberlock.png"/>
+    <TextBox x:Name="pin" HorizontalAlignment="Left" Height="29.6" Margin="34,212.8,0,0" TextWrapping="Wrap"
+             VerticalAlignment="Top" Width="167.4" VerticalContentAlignment="Center"
+             HorizontalContentAlignment="Center" SelectionBrush="#FF03FF06" Foreground="#FF03FF06" FontSize="16"
+             FontFamily="Trebuchet MS" IsReadOnly="true" Style="{DynamicResource TextBoxStyle1}"
+             BorderBrush="{x:Null}" Background="{x:Null}"/>
+    <Path Data="M 34,255.8 L 201.4,255.8 " Fill="#FF03FF06" HorizontalAlignment="Left" Height="5"
+          Margin="34,242.8,0,0" Stretch="Fill" Stroke="#FF03FF06" VerticalAlignment="Top" Width="168.4"/>
+    <Button Click="one_Click" x:Name="one" Content="1" HorizontalAlignment="Left" Height="41.6"
+            Margin="263.4,35.43,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="two_Click" x:Name="two" Content="2" HorizontalAlignment="Left" Height="41.6"
+            Margin="354.2,35.43,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="three_Click" x:Name="three" Content="3" HorizontalAlignment="Left" Height="41.6"
+            Margin="445.394,35.43,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="four_Click" x:Name="four" Content="4" HorizontalAlignment="Left" Height="41.6"
+            Margin="263.4,97.86,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="five_Click" x:Name="five" Content="5" HorizontalAlignment="Left" Height="41.6"
+            Margin="354.2,97.86,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3" RenderTransformOrigin="0.27,1.361"/>
+    <Button Click="six_Click" x:Name="six" Content="6" HorizontalAlignment="Left" Height="41.6"
+            Margin="445.394,97.86,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="seven_Click" x:Name="seven" Content="7" HorizontalAlignment="Left" Height="41.6"
+            Margin="263.4,163.03,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3" RenderTransformOrigin="0.515,-0.005"/>
+    <Button Click="eight_Click" x:Name="eight" Content="8" HorizontalAlignment="Left" Height="41.6"
+            Margin="354.2,163.03,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="nine_Click" x:Name="nine" Content="9" HorizontalAlignment="Left" Height="41.6"
+            Margin="445.394,163.03,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="ok_Click" x:Name="ok" Content="OK" HorizontalAlignment="Left" Height="41.6"
+            Margin="263.4,222.03,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button Click="zero_Click" x:Name="zero" Content="0" HorizontalAlignment="Left" Height="41.6"
+            Margin="354.2,222.03,0,0" VerticalAlignment="Top" Width="81.6"
+            Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D" BorderBrush="#FF03FF06"
+            Foreground="#FF03FF06" BorderThickness="3"/>
+    <Button MouseDown="exit_MouseDown" MouseEnter="exit_MouseEnter" Click="exit_Click" x:Name="exit"
+            Content="EXIT" HorizontalAlignment="Left" Height="41.6" Margin="445.394,222.03,0,0"
+            VerticalAlignment="Top" Width="81.6" Style="{DynamicResource ButtonStyle1}" Background="#FF1A1A1D"
+            BorderBrush="#FF03FF06" Foreground="#FF03FF06" BorderThickness="3"/>
+  </Grid>
+</Window>

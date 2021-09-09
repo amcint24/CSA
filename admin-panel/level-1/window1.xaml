@@ -1,0 +1,25 @@
+<Window x:Class="level_1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:level_1"
+        Title="Window1" Height="258.8" Width="396.8" AllowsTransparency="true" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" Background="{x:Null}" Foreground="{x:Null}">
+  <Grid>
+    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="260.4" Margin="-1,-1.6,0,0"
+               VerticalAlignment="Top" Width="397.8"/>
+    <Rectangle Fill="#FF0E0E6C" HorizontalAlignment="Left" Height="260.4" Margin="0,-1.6,0,0"
+               VerticalAlignment="Top" Width="163"/>
+    <Image HorizontalAlignment="Left" Height="135.6" Margin="14,26.8,0,0" VerticalAlignment="Top"
+           Width="138.6" Source="account.png"/>
+    <TextBox x:Name="flagBox" HorizontalAlignment="Left" Height="24.8" Margin="171,123.2,0,0"
+             TextWrapping="Wrap" VerticalAlignment="Top" Width="218.8" SelectionBrush="#FF0E0E6C"
+             HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="true"
+             Background="{x:Null}" BorderBrush="{x:Null}"/>
+    <TextBlock HorizontalAlignment="Left" Height="26.4" Margin="14,186.2,0,0" TextWrapping="Wrap"
+               Text="WELCOME ADMIN" VerticalAlignment="Top" Width="133.8" Foreground="White" FontSize="16"/>
+    <Image HorizontalAlignment="Left" Height="26.4" Margin="367.6,4,-4,0" VerticalAlignment="Top" Width="33.2"
+           Source="close.png"/>
+  </Grid>
+</Window>

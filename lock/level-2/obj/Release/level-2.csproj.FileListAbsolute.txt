@@ -1,0 +1,10 @@
+C:\Dev\CSA\lock\level-2\bin\Release\level-2.exe
+C:\Dev\CSA\lock\level-2\bin\Release\level-2.pdb
+C:\Dev\CSA\lock\level-2\bin\Release\Cryptography.Obfuscation.dll
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.g.resources
+C:\Dev\CSA\lock\level-2\obj\Release\level_2.Properties.Resources.resources
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.csproj.GenerateResource.cache
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.csproj.CoreCompileInputs.cache
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.csproj.CopyComplete
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.exe
+C:\Dev\CSA\lock\level-2\obj\Release\level-2.pdb
