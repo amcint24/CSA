@@ -17,20 +17,23 @@ sock.connect((challenge_hostname,challenge_port))
 # Recieve first message
 data= decode_message(sock.recv(1024))
 
-ctflag64 = "hHDUv8AMj0x84xv5DLAfnVkMtioxRT87gskSJLPCnI"
 
-chars = "`~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]{},./;'!@#$%^&*()-=|"
 
-fifteen_zeros = ""
+
+
+fifteen_zeros = "000000000000000"
+
 
 # Get ct for 15 zeros + first character of key
 sock.send(bytes(fifteen_zeros, 'ascii'))
 sock.send(b'\n')
 ct_fl = decode_message(sock.recv(1024))[42:64]
 print(ct_fl)
-
 for i in range(33, 125):
-    m = str.encode(fifteen_zeros) + str.encode('!_SECRETSOURCE_!') + str.encode(chr(i))
+
+
+
+    m = str.encode(fifteen_zeros) + str.encode(chr(i))
 
     sock.send(m)
     sock.send(b'\n')
@@ -38,6 +41,7 @@ for i in range(33, 125):
     r = ct_test[42:64]
     if r == ct_fl:
         print(chr(i))
+        break
 
 
 
